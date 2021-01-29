@@ -54,7 +54,7 @@ def main():
     
         if action in actions:
             actions[action](args)
-            os.system('git add . && git commit -m "update" ')
+            os.system('git add . && git commit -m "update" && git push origin master')
         else:
             print('Action not supported')
     except IndexError:
