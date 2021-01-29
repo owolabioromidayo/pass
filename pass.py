@@ -43,7 +43,8 @@ def remove(args):
 			passfile.write(line)
 
 
-
+def commit():
+            os.system('git add . && git commit -m "update" && git push origin master')
 
 def main():
     actions = {'add': add, 'gen':gen, 'find':find, 'remove':remove}
@@ -54,7 +55,7 @@ def main():
     
         if action in actions:
             actions[action](args)
-            os.system('git add . && git commit -m "update" && git push origin master')
+            os.system('git add . && git commit -m "update" ')
         else:
             print('Action not supported')
     except IndexError:
