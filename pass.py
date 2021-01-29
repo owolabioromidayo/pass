@@ -43,15 +43,17 @@ def remove(args):
 			passfile.write(line)
 
 
-def commit():
+def commit(args):
             os.system('git add . && git commit -m "update" && git push origin master')
 
 def main():
-    actions = {'add': add, 'gen':gen, 'find':find, 'remove':remove}
+    actions = {'add': add, 'gen':gen, 'find':find, 'remove':remove, 'commit':commit}
 
     try:
         action = sys.argv[1]
-        args = sys.argv[2:]
+        args = []
+        if len(sys.argv) > 2:
+                args = sys.argv[2:]
     
         if action in actions:
             actions[action](args)
