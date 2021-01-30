@@ -44,7 +44,8 @@ def remove(args):
 
 
 def commit(args):
-            os.system('git add . && git commit -m "update" && git push origin master')
+            os.system('git add . && git commit -m "update" ')
+            os.system('git push origin master')
 
 def main():
     actions = {'add': add, 'gen':gen, 'find':find, 'remove':remove, 'commit':commit}
