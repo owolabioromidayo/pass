@@ -49,6 +49,7 @@ def commit(args):
 def main():
     actions = {'add': add, 'gen':gen, 'find':find, 'remove':remove, 'commit':commit}
 
+    os.chdir('/home/oromidayo/pass')
     try:
         action = sys.argv[1]
         args = []
