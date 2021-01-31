@@ -59,7 +59,8 @@ def main():
     
         if action in actions:
             actions[action](args)
-            os.system('git add . && git commit -m "update" ')
+            if action != 'find':
+                os.system('git add . && git commit -m "update" ')
         else:
             print('Action not supported')
     except IndexError:
