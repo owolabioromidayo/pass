@@ -21,8 +21,7 @@ def find(args):
         with open('passwords.txt', 'r') as passfile:
                 for line in passfile.readlines():
                         info =  line.split('   ')
-                        for field in info:
-                                if args[0] in field:
+                        if len(list(filter(lambda x: args[0] in x, info))):
                                         print('   '.join(info).strip())                 
 def remove(args):
         lines = []
@@ -33,12 +32,11 @@ def remove(args):
         with open('passwords.txt', 'w') as passfile:
                 for line in lines:
                         info =  line.split('   ')
-                        for field in info:
-                                if args[0] in field:
-                                        confirm = input(f"Do you want to delete field {'   '.join(info).strip()}  (y/n)  ? ")
-                                        if confirm == 'y':
-                                                removeIdx.append(line)  
-                                                print(f"{'   '.join(info).strip()} deleted")                    
+                        if len(list(filter(lambda x: args[0] in x, info))):
+                                confirm = input(f"Do you want to delete field {'   '.join(info).strip()}  (y/n)  ? ")
+                                if confirm == 'y':
+                                        removeIdx.append(line)  
+                                        print(f"{'   '.join(info).strip()} deleted")                    
                                         
                     
                 for line in lines:
