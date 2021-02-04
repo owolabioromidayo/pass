@@ -45,7 +45,6 @@ def remove(args):
                     if line not in removeIdx:
                         passfile.write(line)
 
-
 def commit(args):
             os.system('git add . && git commit -m "update" ')
             os.system('git push origin master')
