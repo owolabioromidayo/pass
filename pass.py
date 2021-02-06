@@ -8,7 +8,7 @@ def add(args):
                 print(f"{info} added!")
 
 def gen(args):
-        chars = list("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890[];:.,<>?/|~`!@#$%^&*()_-+=")
+        chars = list("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890;:.,?/|~`!@#$%^&*_-+=")
         password = ""
         for _ in range(random.choice(range(15, 21))):
                 password += random.choice(chars)
