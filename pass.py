@@ -4,7 +4,7 @@ def add(args):
         print('Adding')
         with open('passwords.txt', 'a') as passfile:
                 info  =  '   '.join(args)
-                passfile.write(info)
+                passfile.write(f"\n {info}")
                 print(f"{info} added!")
 
 def gen(args):
