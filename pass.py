@@ -1,4 +1,4 @@
-import os,sys, random
+import os,sys, random, subprocess
 
 def add(args):
         print('Adding')
@@ -53,16 +53,18 @@ def main():
     with open('config', 'r') as config_file:
             for line in config_file.readlines():
                 _config = line.split('=')
-                config[_config[0]] = _config[1]
+                if len(_config)  == 2 and line[0] != '#':
+                    config[_config[0]] = _config[1].strip()
 
-    print(config)
 
     if config['PASS_DIR']:
         if os.path.exists(config['PASS_DIR']):
                os.chdir(config['PASS_DIR'])
     else:
         os.chdir('~/pass')
-
+    
+    if not os.path.exists('passwords.txt'):
+       subprocess.call(['touch','passwords.txt']) 
     try:
         action = sys.argv[1]
         args = []
