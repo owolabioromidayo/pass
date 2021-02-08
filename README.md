@@ -1,4 +1,4 @@
-## pass - A minimalistic, sub 100 line,  terminal based password manager
+## pass - A minimalistic, terminal based password manager
 
 ## Why Pass
 * Easy Storage and Retrieval of Passwords
