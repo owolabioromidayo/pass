@@ -20,12 +20,14 @@ class TextInterface:
             }
 
         self.config = ConfigService()
+        self. encrypter = EncryptionService()
         
 
 def add(self, args):
         print('Adding')
         with open('store', 'a') as passfile:
                 info  =  '   '.join(args)
+                info[1] = self.encrypter.encrypt(1)
                 passfile.write(f"\n {info}")
                 print(f"{info} added!")
 
@@ -45,6 +47,7 @@ def find(self, args):
                 for line in passfile.readlines():
                         info =  line.split('   ')
                         if len(list(filter(lambda x: args[0] in x, info))):
+                                    info[1] = self.encrypter.decrypt(info[1])
                                         print('   '.join(info).strip())  
 
 
